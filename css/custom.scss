@@ -1,0 +1,125 @@
+// Colors
+
+$color-ligero: #7ed56f;
+$color-medio: #55c57a;
+$color-oscuro: #28b485;
+$color-blanco: #ffffff;
+
+$color-gradiente-l: rgba(126, 213, 111, 0.8);
+$color-gradienter-o: rgba(40, 100, 131, 0.8);
+
+$fuente-roboto: 'Roboto', sans-serif;
+$fuente-lato: 'Lato', sans-serif;
+
+
+
+// Custom
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $fuente-lato;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #777;
+    padding: 30px;
+}
+.header {
+    height: 95vh;
+
+    background-image: linear-gradient(
+        to right bottom, 
+        $color-gradiente-l, 
+        $color-gradienter-o), 
+    url(../img/hero.jpg);
+
+    background-size: cover;
+    background-position: center;
+
+    // clip-path: polygon(x y, x y, x y);
+
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    
+    .logo-box {
+        position: absolute;
+        top: 70px;
+        left: 70px;
+
+        .logo {
+            color: #ffffff;
+            font-size: 35px;
+        }
+
+        .logo:hover {
+            animation: moveInRight 1s ease-out;   
+        }
+    }
+    
+    .text-box {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        
+        .heading-primary {
+            color: $color-blanco;
+            text-transform: uppercase;
+            backface-visibility: hidden;
+        }
+        .heading-primary-main {
+            display: block;
+            font-size: 3.75rem;
+            font-weight: 400;
+            letter-spacing: 35px;
+    
+            animation-name: moveInLeft;
+            animation-duration: 1s;
+            animation-timing-function: ease-out;
+            //animation-iteration-count: 3;
+            //animation-delay: 3s;
+        }
+        .heading-primary-sub {
+            display: block;
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: 17.6px;
+    
+            animation-name: moveInRight;
+            animation-duration: 1s;
+            animation-timing-function: ease-out;
+        }
+    }
+    @keyframes moveInLeft {
+        0% {
+            opacity: 0;
+            transform: translateX(-100px);
+        }
+        80% {
+            transform: translateX(20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translate(0);
+        }
+    }
+    @keyframes moveInRight {
+        0% {
+            opacity: 0;
+            transform: translateX(100px);
+        }
+        80% {
+            transform: translateX(-20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translate(0);
+        }
+    }
+    
+}
+
